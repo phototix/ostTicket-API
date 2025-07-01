@@ -2,10 +2,9 @@
 header('Content-Type: application/json');
 require_once __DIR__ . '/../config/database.php';
 
-$data = json_decode(file_get_contents("php://input"), true);
-$group_id = $data['group_id'] ?? null;
-$subject = $data['subject'] ?? null;
-$message = $data['message'] ?? 'No details';
+$group_id = $_REQUEST['group_id'] ?? null;
+$subject  = $_REQUEST['subject'] ?? null;
+$message  = $_REQUEST['message'] ?? 'No details';
 
 if (!$group_id || !$subject) {
     http_response_code(400);
