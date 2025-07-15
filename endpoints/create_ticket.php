@@ -16,7 +16,7 @@ if (!$group_id || !$subject) {
 function generateTicketCode(): string {
     // e.g. YYMMDD + random 8 characters
     $datePart = date('ymd'); // 6 digits
-    $randomPart = substr(strtoupper(bin2hex(random_bytes(5))), 0, 3); // 3 characters
+    $randomPart = substr(strtoupper(bin2hex(random_bytes(5))), 0, 2); // 2 characters
     return $datePart . $randomPart; // total 14 characters
 }
 
